@@ -1,18 +1,23 @@
 # Multiple SSH Keys settings for different github account
 
-## Create different public key
+## Create different public keys
 
-You are going to make two or more of them, each through this command:
+You probably wanto to generate two or more of them, each through this command:
+
 ```
  $ ssh-keygen -t rsa -C "respectivemail@mail.com"
 ```
-you can check your keys at:
+
+you can check your keys in the following directory:
+
 ```
  $ ~/.ssh/ 
 ```
 
-you can see added keys through:
+You can see active keys through:
+```
  $ ssh-add -l
+```
 
 if you can't find yours, you may use:
 ```
@@ -45,18 +50,20 @@ Here you're going to set your keys:
 
 Then clone your repo: 
 
+```
  git clone git@github.com:zerkeizi/somerepo.git
+```
 
-_Is it your [First Commit](#first-commit)?_
+_Is it your [First commit](#first-commit)?_
 
-Inside it, config your credentials
+Inside the folder you just cloned, config your credentials:
 
 ```
  $ git config user.name "yourname"
  $ git config user.email "respectivemail@mail.com" 
 ```
 
-You can also have global credentials configured (those will be used if you don't set them inside a git folder as the previous step demonstrate): 
+You can also have global credentials configured (those will be used if you don't set them inside a git folder as the previous step shows): 
 
 ```
  $ git config --global user.name "yourname" 
@@ -71,9 +78,11 @@ $ git commit -m "your comments"
 $ git push
 ```
 
-<a name="first-commit"</a# First commit
+<a id="first-commit">First commit</a>
 
 Make sure you already have the repo on your account, and go for:
 
- git remote add origin git@github.com:Zerkeizi/yourrepo.git
- git push --set-upstream origin master
+```
+$ git remote add origin git@github.com:Zerkeizi/yourrepo.git
+$ git push --set-upstream origin master
+```
