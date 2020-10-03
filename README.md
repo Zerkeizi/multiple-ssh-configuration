@@ -1,4 +1,4 @@
-# Multiple SSH Keys settings for different github account
+# Configuration for multiple SSH keys
 
 ## Create different public keys
 
