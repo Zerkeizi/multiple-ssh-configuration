@@ -54,8 +54,6 @@ Then clone your repo:
  git clone git@github.com:zerkeizi/somerepo.git
 ```
 
-_Is it your [First commit](#first-commit)?_
-
 Inside the folder you just cloned, config your credentials:
 
 ```
@@ -78,11 +76,12 @@ $ git commit -m "your comments"
 $ git push
 ```
 
-<a id="first-commit">First commit</a>
+### <a id="first-commit">First commit</a>
 
-Make sure you already have the repo on your account, and go for:
+If this is your first commit after a ```$ git init```, make sure you already have the repo on your account, credentials set, and go for:
+
 
 ```
-$ git remote add origin git@github.com:Zerkeizi/yourrepo.git
+$ git remote add origin git@github.com:zerkeizi/yourrepo.git
 $ git push --set-upstream origin master
 ```
