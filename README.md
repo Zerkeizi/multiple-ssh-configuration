@@ -5,8 +5,9 @@
 You probably wanto to generate two or more of them, each through this command:
 
 ```
- $ ssh-keygen -t rsa -C "respectivemail@mail.com"
+ $ ssh-keygen -t rsa -C "Your comment"
 ```
+> Generate a key of type RSA and add a comment of your choice to ease key identification.
 
 you can check your keys in the following directory:
 
@@ -19,42 +20,11 @@ You can see active keys through:
  $ ssh-add -l
 ```
 
-if you can't find yours, you may use:
+if you can't find yours, you may add them:
 ```
  $ ssh-add ~/.ssh/key_name 
 ```
-
-## Create an SSH config
-
-```
- $ cd ~/.ssh/
- $ touch config
- $ gedit config
-```
-
-Here you're going to set your keys:
-
-```
- #zerkeizi account
- Host github.com-zerkeizi
- 	HostName github.com
- 	User git
- 	IdentityFile ~/.ssh/my_key
-
- #company account
- Host github.com-company
- 	HostName github.com
- 	User git
- 	IdentityFile ~/.ssh/company_key
-```
-
-Then clone your repo: 
-
-```
- git clone git@github.com:zerkeizi/somerepo.git
-```
-
-Inside the folder you just cloned, config your credentials:
+> Key will be named after your comment by default.
 
 ```
  $ git config user.name "yourname"
@@ -72,7 +42,7 @@ You can also have global credentials configured (those will be used if you don't
 
 ```
 $ git add .
-$ git commit -m "your comments"
+$ git commit -m "your commit message"
 $ git push
 ```
 
