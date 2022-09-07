@@ -1,57 +1,56 @@
 # Configuration for multiple SSH keys
+> This trick can be used to ease the process when using SSH for authentication. It can either be used to access a webserver or manage a git repository by terminal.
 
-## Create different public keys
+<br>
 
-You probably wanto to generate two or more of them, each through this command:
+## 2. Create different public keys
 
+Generally, SSH keys are kept in this folder, you can check your current ones:
+```
+ $ ls ~/.ssh/ 
+```
+
+
+Since I'll be creating multiple keys, I am organizing them in separated folders
+```
+ $ cd ~/.ssh/ 
+ $ mkdir work
+ $ mkdir personal
+```
+
+For each of them I'll be running:
 ```
  $ ssh-keygen -t rsa -C "Your comment"
 ```
-> Generate a key of type RSA and add a comment of your choice to ease key identification.
+> Before heading to the next steps, make sure you have a pair of keys inside each folder
 
-you can check your keys in the following directory:
+<br/>
 
-```
- $ ~/.ssh/ 
-```
+## 2. The <b>config</b> file:
 
-You can see active keys through:
+Create a config file inside `/.ssh/` folder
 ```
- $ ssh-add -l
+$ touch config
 ```
 
-if you can't find yours, you may add them:
+Set it as so:
 ```
- $ ssh-add ~/.ssh/key_name 
-```
-> Key will be named after your comment by default.
+Host mine
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/personal/id_rsa.pub
 
-```
- $ git config user.name "yourname"
- $ git config user.email "respectivemail@mail.com" 
-```
-
-You can also have global credentials configured (those will be used if you don't set them inside a git folder as the previous step shows): 
-
-```
- $ git config --global user.name "yourname" 
- $ git config --global user.email "respectivemail@mail.com"
+Host theirs
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/work/id_rsa.pub
 ```
 
-## Finally
-
+Now, <b>mine</b> is an alias for my first settings. I could set other things beyond HostName, User and IdentityFile. Like port. <br/>We use the alias as a reference:
 ```
-$ git add .
-$ git commit -m "your commit message"
-$ git push
+git clone mine:zerkeizi/multiple-ssh-configuration.git
 ```
 
-### <a id="first-commit">First commit</a>
+Thats it. 
 
-If this is your first commit after a ```$ git init```, make sure you already have the repo on your account, credentials set, and go for:
-
-
-```
-$ git remote add origin git@github.com:zerkeizi/yourrepo.git
-$ git push --set-upstream origin master
-```
+<br/>
