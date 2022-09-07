@@ -38,12 +38,12 @@ Set it as so:
 Host mine
    HostName github.com
    User git
-   IdentityFile ~/.ssh/personal/id_rsa.pub
+   IdentityFile ~/.ssh/personal/id_rsa
 
 Host theirs
     HostName github.com
     User git
-    IdentityFile ~/.ssh/work/id_rsa.pub
+    IdentityFile ~/.ssh/work/id_rsa
 ```
 
 Now, <b>mine</b> is an alias for my first settings. I could set other things beyond HostName, User and IdentityFile. Like port. <br/>We use the alias as a reference:
